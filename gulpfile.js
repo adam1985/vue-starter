@@ -8,17 +8,20 @@ const gulpif = require('gulp-if');
 const rename = require('gulp-rename');
 const releasePath = __dirname + '/dist';
 const distAbsolutePath = __dirname + '/dist/static/';
+const run = require('./run');
 
 const PRJ_ROOT = path.normalize(__dirname);
 const PKG = require('./package.json');
-const USER = process.env.USER;
-const DOMAIN = PKG.domain;
+const USER = run.user;
+const DOMAIN = run.domain;
+const PORT = run.port;
 
 // 生成nginx配置
 gulp.task('ngx',  () => {
 
     let data = {
         USER: USER,
+        PORT: PORT,
         DOMAIN: DOMAIN,
         PRJ_ROOT: PRJ_ROOT
     };
