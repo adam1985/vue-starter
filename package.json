@@ -1,8 +1,8 @@
 {
-  "name": "webpack-vue",
+  "name": "vue-starter",
   "version": "1.0.0",
   "description": "A Vue.js project",
-  "author": "pangyuanxing",
+  "author": "adam1985",
   "private": true,
   "scripts": {
     "ngx": "gulp ngx",
