@@ -15,8 +15,8 @@ var webpackConfig = merge(baseWebpackConfig, {
   devtool: config.build.productionSourceMap ? '#source-map' : false,
   output: {
     path: path.join(config.build.assetsRoot, config.build.assetsSubDirectory),
-    filename: '/js/[name].[chunkhash].js',
-    chunkFilename: '/js/[id].[chunkhash].js'
+    filename: '/js/[name].js',
+    chunkFilename: '/js/[id].js'
   },
   vue: {
     loaders: utils.cssLoaders({
@@ -36,7 +36,7 @@ var webpackConfig = merge(baseWebpackConfig, {
     }),
     new webpack.optimize.OccurenceOrderPlugin(),
     // extract css into its own file
-    new ExtractTextPlugin('/css/[name].[contenthash].css'),
+    new ExtractTextPlugin('/css/[name].css'),
 
     // generate dist index.html with correct asset hash for caching.
     // you can customize output by editing /index.html

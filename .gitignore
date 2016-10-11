@@ -1,4 +1,4 @@
-# Created by .ignore support plugin (hsz.mobi)
+# Created by .ignore support plugin
 pui
 *_autoload*
 _act*
@@ -9,7 +9,7 @@ _act*
 *.map
 ._pylon.dat
 .gd*
-conf/used
+options/used
 tmp
 npm-debug.log
 cscop*

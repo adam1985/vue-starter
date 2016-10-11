@@ -60,7 +60,7 @@ module.exports = {
         loader: 'url',
         query: {
           limit: 100,
-          name: 'images/[name].[hash:7].[ext]'
+          name: 'images/[name].[ext]'
         }
       },
       {
@@ -68,7 +68,7 @@ module.exports = {
         loader: 'url',
         query: {
           limit: 10000,
-          name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
+          name: utils.assetsPath('fonts/[name].[ext]')
         }
       }
     ]
