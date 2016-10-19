@@ -7,10 +7,10 @@
   "scripts": {
     "ngx": "gulp ngx",
     "dev:server": "node build/dev-server.js",
-    "dev": "npm-run-all --parallel ngx dev:*",
+    "dev": "cross-env NODE_ENV=development npm-run-all --parallel ngx dev:*",
     "build": "node build/build.js",
     "deploy:cdn": "gulp deploy",
-    "deploy": "npm-run-all build --parallel ngx deploy:*",
+    "deploy": "cross-env NODE_ENV=production npm-run-all build --parallel ngx deploy:*",
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
@@ -28,6 +28,7 @@
     "babel-preset-stage-2": "^6.0.0",
     "babel-register": "^6.0.0",
     "connect-history-api-fallback": "^1.1.0",
+    "cross-env": "^3.1.2",
     "css-loader": "^0.25.0",
     "dotenv": "^2.0.0",
     "eslint": "^3.7.1",
@@ -58,7 +59,10 @@
     "shelljs": "^0.7.4",
     "url-loader": "^0.5.7",
     "vue-loader": "^9.4.0",
+    "vue-resource": "^1.0.3",
+    "vue-router": "^2.0.0",
     "vue-style-loader": "^1.0.0",
+    "vuex": "^2.0.0",
     "webpack": "^1.13.2",
     "webpack-dev-middleware": "^1.8.3",
     "webpack-hot-middleware": "^2.12.2",

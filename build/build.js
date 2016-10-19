@@ -1,12 +1,17 @@
 // https://github.com/shelljs/shelljs
 require('shelljs/global')
-env.NODE_ENV = 'production'
 
 var path = require('path')
 var config = require('../config')
 var ora = require('ora')
 var webpack = require('webpack')
 var webpackConfig = require('./webpack.prod.conf')
+
+if(process.env.NODE_ENV === config.build.env.NODE_ENV){
+  env.NODE_ENV = config.build.env.NODE_ENV;
+} else {
+  env.NODE_ENV = 'preproduction';
+}
 
 console.log(
   '  Tip:\n' +

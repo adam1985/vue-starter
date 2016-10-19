@@ -26,10 +26,14 @@ gulp.task('ngx',  () => {
         PRJ_ROOT: PRJ_ROOT
     };
 
+    let basename = DOMAIN.split('.').filter( (v, i, arr) => i < arr.length -1 ).join('_');
+
     return gulp.src(PRJ_ROOT + '/options/conf/*.conf')
         .pipe(template(data))
         .pipe(gulpif("*.conf", rename({
-            prefix: data.USER + '_'
+            basename: basename,
+            prefix: data.USER + '_',
+            suffix: '_ngx'
         })))
         .pipe(gulp.dest(PRJ_ROOT + '/options/used'));
 
@@ -38,6 +42,9 @@ gulp.task('ngx',  () => {
 gulp.task('cdn_img', () => {
 	return gulp.src([releasePath + '/**', '!' + releasePath + '/static/{images,img,fonts}/**', '!' + releasePath + '/**/*.{swf,map}'])
 		.pipe(cdnImage({
+      host:{
+        domain: 'qhres.com'
+      },
 			notCssTypeExts: ['.html', '.js', '.php'],
 			relativePath: distAbsolutePath
 		}))
@@ -47,6 +54,9 @@ gulp.task('cdn_img', () => {
 gulp.task('cdn_html', () => {
 	return gulp.src(releasePath + '/**/*.{html,php}')
 		.pipe(cdnStatic({
+      host:{
+        domain: 'qhres.com'
+      },
 			relativePath: distAbsolutePath,
 			exts: ['.html', '.php']
 		}))

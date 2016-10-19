@@ -2,6 +2,14 @@ var path = require('path')
 var config = require('../config')
 var utils = require('./utils')
 var projectRoot = path.resolve(__dirname, '../')
+var env = process.env.NODE_ENV;
+var publicPath = '';
+
+if ( env === 'development') {
+  publicPath = config.dev.assetsPublicPath;
+} else if ( env === 'preproduction' ) {
+  publicPath = config.build.assetsPublicPath;
+}
 
 module.exports = {
   entry: {
@@ -9,7 +17,7 @@ module.exports = {
   },
   output: {
     path: config.build.assetsRoot,
-    publicPath: process.env.NODE_ENV === 'production' ? config.build.assetsPublicPath : config.dev.assetsPublicPath,
+    publicPath: publicPath,
     filename: '[name].js'
   },
   resolve: {

@@ -35,5 +35,5 @@ dist/debug/*
 .jshintrc
 sftp-config.json
 .jsbeautifyrc
-.sublime-project
-.sublime-workspace
+*.sublime-project
+*.sublime-workspace
